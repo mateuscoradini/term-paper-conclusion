@@ -1,0 +1,267 @@
+﻿<script charset="utf-8" src="js/html/submitproperty.js" type="text/javascript"></script>
+<div class="content-title">
+    <div class="wrapper">
+        <h1>Home > Anuncie no Findplaces
+        </h1>
+    </div>
+</div>
+<div class="wrapper">
+    <div id="default-top">
+        <div id="default-top-title" class="default-top-orange">
+            <h1>
+                <img alt="Anuncie no Findplaces" src="img/sign.png" title="Anuncie no Findplaces">
+                ANUNCIE NO FINDPLACES
+            </h1>
+        </div>
+        <div id="default-top-triangle" class="default-top-triangle-orange"></div>
+        <div id="default-top-form">
+            <div id="tabs">
+                <ul>
+                    <li id="tabs-1-title"><a href="#tabs-1">Anúncio</a></li>
+                    <li id="tabs-2-title" class="hide"><a href="#tabs-2">Estatísticas</a></li>
+                    <li id="tabs-3-title" class="hide"><a href="#tabs-3">Perguntas</a></li>
+                </ul>
+                <div id="tabs-1">
+                    <form id="form_property">
+                        <div id='default-top-info'>
+                            <div>
+                                <label for="sellType">Tipo de anúncio:</label>
+                                <select id="sellType" name="sellType">
+                                    <option value="">Selecione</option>
+                                    <option value="1">Venda</option>
+                                    <option value="2">Aluguel</option>
+                                    <option value="3">Temporada</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="valid_of">Período do anúncio:</label>
+                                <input class="inputSizeSmaller" id="valid_of" name="valid_of" type="text" />
+                                à
+                                <input class="inputSizeSmaller" id="valid_to" name="valid_to" type="text" />
+                                <img alt="Para anúncios de temporada defina o período que pretende alugar para o valor específicado." id="help_valid_of" src="img/help-medium.png" title="Para anúncios de temporada defina o período que pretende alugar para o valor específicado" />
+                            </div>
+                            <div>
+                                <label for="placetype">Tipo de imóvel:</label>
+                                <select id="placetype" name="placetype">
+                                    <option value="">Selecione</option>
+                                    <option value="1">Apartamento</option>
+                                    <option value="2">Casa</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="address1">Endereço:</label>
+                                <input class="inputSizeBig" id="address1" name="address1" placeholder="Ex. Rua Aguapé, 392, Campinas, SP" type="text" />
+                            </div>
+                            <div>
+                                <label for="cellphone">Telefone 1:</label>
+                                <input class="inputSizeMedium" id="cellphone" maxlength="16" name="cellphone" placeholder="Ex. (19) 98872-6604" type="text" />
+                            </div>
+                            <div>
+                                <label for="cellphone2">Telefone 2:</label>
+                                <input class="inputSizeMedium" id="cellphone2" maxlength="16" name="cellphone2" type="text" />
+                            </div>
+                        </div>
+                        <fieldset id="place-images" class='default-top-details'>
+                            <legend>Fotos</legend>
+                            <input accept="image/jpeg, image/png" id="photo" name="photo" type="file" class="hide" />
+                            <div id="div_link_photo" class="msg_fieldset div_link" onclick="$.addPhoto();">Clique aqui para selecionar uma foto</div>
+                        </fieldset>
+                        <fieldset id="values-details" class='default-top-details'>
+                            <legend>Valores</legend>
+                            <div class="msg_fieldset">Selecione um tipo de anúncio primeiro.</div>
+                            <div>
+                                <label for="value_sale">Valor</label><br />
+                                <input class="inputSizeSmaller" id="price" maxlength="10" name="price" type="text" />
+                            </div>
+                            <div>
+                                <label for="deposit">Depósito de garantia</label><br />
+                                <input class="inputSizeSmaller" id="deposit" maxlength="10" name="deposit" type="text" />
+                            </div>
+                            <div>
+                                <label for="rent">Aluguel</label><br />
+                                <input class="inputSizeSmaller" id="rent" maxlength="10" name="rent" type="text" />
+                            </div>
+                            <div>
+                                <label for="contract_time">Contrato (meses)</label><br />
+                                <input class="inputSizeSmaller" id="contract_time" maxlength="2" name="contract_time" type="text" />
+                            </div>
+                            <div>
+                                <label for="pack_time">Pacote (dias)</label><br />
+                                <input class="inputSizeSmaller" id="pack_time" maxlength="2" name="pack_time" type="text" disabled="disabled" />
+                            </div>
+                            <div>
+                                <label for="iptu">IPTU</label><br />
+                                <input class="inputSizeSmaller" id="iptu" maxlength="10" name="iptu" type="text" />
+                            </div>
+                            <div>
+                                <label for="condominiumPrice">Condomínio</label><br />
+                                <input class="inputSizeSmaller" id="condominiumPrice" maxlength="10" name="condominiumPrice" type="text" />
+                            </div>
+                            <div>
+                                <label for="internetPrice">Banda larga</label><br />
+                                <input class="inputSizeSmaller" id="internetPrice" maxlength="10" name="internetPrice" type="text" />
+                            </div>
+                            <div>
+                                <label for="tv">TV por assinatura</label><br />
+                                <input class="inputSizeSmaller" id="tv" maxlength="10" name="tv" type="text" />
+                            </div>
+                            <div>
+                                <label for="totalPrice">Total</label><br />
+                                <input class="inputSizeSmaller" id="totalPrice" maxlength="10" name="totalPrice" type="text" disabled="disabled" />
+                            </div>
+                        </fieldset>
+                        <fieldset id="details" class='default-top-details'>
+                            <legend>Detalhes</legend>
+                            <div class="msg_fieldset">Selecione um tipo de imóvel primeiro.</div>
+                            <div>
+                                <label for="qtdPlaceFloor">Apartamento por andar</label><br />
+                                <input class="inputSizeSmaller" id="qtdPlaceFloor" maxlength="2" name="qtdPlaceFloor" type="text" />
+                            </div>
+                            <div>
+                                <label for="placeFloor">Andar em que se localiza</label><br />
+                                <input class="inputSizeSmaller" id="placeFloor" maxlength="2" name="placeFloor" type="text" />
+                            </div>
+                            <div>
+                                <label for="m2">Área útil (m²)</label><br />
+                                <input class="inputSizeSmaller" id="m2" maxlength="3" name="m2" type="text" />
+                            </div>
+                            <div>
+                                <label for="bedroom">Dormitório</label><br />
+                                <input class="inputSizeSmaller" id="bedroom" maxlength="2" name="bedroom" type="text" />
+                            </div>
+                            <div>
+                                <label for="suite">Suíte</label><br />
+                                <input class="inputSizeSmaller" id="suite" maxlength="2" name="suite" type="text" />
+                            </div>
+                            <div>
+                                <label for="room">Sala</label><br />
+                                <input class="inputSizeSmaller" id="room" maxlength="2" name="room" type="text" />
+                            </div>
+                            <div>
+                                <label for="bathroom">Banheiro</label><br />
+                                <input class="inputSizeSmaller" id="bathroom" maxlength="2" name="bathroom" type="text" />
+                            </div>
+                            <div>
+                                <label for="garage">Vagas de Garagem</label><br />
+                                <input class="inputSizeSmaller" id="garage" maxlength="2" name="garage" type="text" />
+                            </div>
+                        </fieldset>
+                        <fieldset id="facilities-property" class='default-top-details'>
+                            <legend>Informações</legend>
+                            <div>
+                                <label for="description">Sobre</label>
+                                <textarea cols="53" id="description" name="description" placeholder="Ex. Imóvel novo, pronto para morar, projeto diferenciado e excelente localização, as ruas do bairro..." rows="8"></textarea>
+                            </div>
+                            <br />
+                            <div>
+                                <label>Comodidades</label>
+                            </div>
+                            <table>
+                                <tr>
+                                    <th colspan="2">Imóvel</th>
+                                    <th colspan="2">Condomínio</th>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="internet">Acesso à internet incluso</label></td>
+                                    <td>
+                                        <input id="internet" name="internet" type="checkbox" /></td>
+                                    <td>
+                                        <label for="gatekeeper">Porteiro</label></td>
+                                    <td>
+                                        <input id="gatekeeper" name="gatekeeper" type="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="bedroomCloset">Armários embutido no quarto</label></td>
+                                    <td>
+                                        <input id="bedroomCloset" name="bedroomCloset" type="checkbox" /></td>
+                                    <td>
+                                        <label for="townBarbecue">Churrasqueira</label></td>
+                                    <td>
+                                        <input id="townBarbecue" name="townBarbecue" type="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="kitchenCabinet">Armários na cozinha</label></td>
+                                    <td>
+                                        <input id="kitchenCabinet" name="kitchenCabinet" type="checkbox" /></td>
+                                    <td>
+                                        <label for="gasTubing">Gás encanado</label></td>
+                                    <td>
+                                        <input id="gasTubing" name="gasTubing" type="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="hidromassage">Banheira hidromassagem</label></td>
+                                    <td>
+                                        <input id="hidromassage" name="hidromassage" type="checkbox" /></td>
+                                    <td>
+                                        <label for="townPool">Piscina</label></td>
+                                    <td>
+                                        <input id="townPool" name="townPool" type="checkbox" /></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="terrace">Varanda</label></td>
+                                    <td>
+                                        <input id="terrace" name="terrace" type="checkbox" /></td>
+                                    <td>
+                                        <label for="automaticDoor">Portão automático</label></td>
+                                    <td>
+                                        <input id="automaticDoor" name="automaticDoor" type="checkbox" /></td>
+                                </tr>
+                            </table>
+                        </fieldset>
+                        <div class="right-button">
+                            <button alt="Salvar" id="save_property" title="Salvar" type="submit">Salvar</button>
+                        </div>
+                        <!--hidden fields-->
+                        <input type="hidden" name="lat" id="lat" />
+                        <input type="hidden" name="lng" id="lng" />
+                    </form>
+                </div>
+                <div id="tabs-2">
+                    <fieldset>
+                        <legend>Visualizações do Imóvel</legend>
+                        <canvas id="placeChart" width="900px" height="200px" />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Buscas no bairro</legend>
+                        <canvas id="neighborhoodChart" width="900px" height="200px" />
+                    </fieldset>
+                    <fieldset>
+                        <legend>Idade dos usuários</legend>
+                        <canvas id="ageOfUsersChart" width="200px" height="200px" />
+                        <div>
+                            <ul>
+                                <li><span style="color: #F38630">20 anos</span></li>
+                                <li><span style="color: #E0E4CC">30 anos</span></li>
+                                <li><span style="color: #69D2E7">40 anos</span></li>
+                            </ul>
+                        </div>
+                        <br class="clr" />
+                    </fieldset>
+                </div>
+                <div id="tabs-3">
+                    <table id="property-questions"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="account-actions">
+        <div>
+            MINHA CONTA
+       
+        </div>
+        <ul>
+            <li onclick="$.openURLContent('#content', 'management', null);">
+                <a href="index.html#management">Meus anúncios</a>
+            </li>
+            <li onclick="$.openURLContent('#content', 'profile', null);">
+                <a href="index.html#profile">Perfil</a>
+            </li>
+        </ul>
+    </div>
+    <br class="clr" />
+</div>

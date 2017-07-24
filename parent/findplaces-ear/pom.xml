@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    xmlns = "http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation = "http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>findplaces-parent</artifactId>
+        <groupId>findplaces</groupId>
+        <version>1.0.0.0-SNAPSHOT</version>
+    </parent>
+    <artifactId>findplaces-ear</artifactId>
+    <packaging>ear</packaging>
+    <name>FINDPLACES EAR</name>
+    <dependencies>
+        <dependency>
+            <groupId>findplaces</groupId>
+            <artifactId>findplaces-services</artifactId>
+            <version>1.0.0.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>findplaces</groupId>
+            <artifactId>findplaces-web</artifactId>
+            <version>1.0.0.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>findplaces</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <displayName>FindPlaces EAR</displayName>
+                    <description>FindPlaces EAR</description>
+                    <earSourceDirectory>${project.build.outputDirectory}</earSourceDirectory>
+                    <defaultJavaBundleDir>lib/</defaultJavaBundleDir>
+                    <modules>
+						 <ejbModule>
+							<groupId>findplaces</groupId>
+							<artifactId>findplaces-services</artifactId>
+						  </ejbModule>
+                        <webModule>
+                            <groupId>findplaces</groupId>
+                            <artifactId>findplaces-web</artifactId>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

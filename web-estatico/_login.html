@@ -1,0 +1,76 @@
+<div class="loginSection">
+	<div class="controleComponente">
+		<div class="title">Cadastre-se</div>
+		<ul class="erros" id="erroCadastrese">
+		</ul>
+		<div class="item">
+			<form id="cadastreSeForm">
+				<input type="text" placeholder="Nome" name="name" />
+				<input type="email" placeholder="E-mail" name="email" />
+				<input type="password" placeholder="Senha" name="password" />
+				<input type="password" placeholder="Confirme a senha" name="confirmPassword" />
+				<br class="clr" />
+				<div class="controle">
+		            <a class="editar" onclick="javascript:$.cadastro()">Cadastre-se!</a>
+    				<div class="fb-login-button" style="margin: 0 auto;" data-width="200" scope="email,user_likes">
+    					Cadastre-se pelo FB
+    				</div>
+
+		        </div>
+			</form>
+		</div>
+	</div>
+	<div class="controleComponente">
+		<div class="title">Acesse sua conta</div>
+		<div class="item">
+			<form id="entre">
+				<input type="email" placeholder="E-mail" name="email" />
+				<input type="password" placeholder="Senha" name="password" />
+				<br class="clr" />
+				<div class="controle">
+		            <a class="editar" onclick="javascript:$.login()">Se autentique.</a>
+    				<div class="fb-login-button" style="margin: 0 auto;" data-width="200" scope="email,user_likes">
+    					Entre, com o facebook.
+    				</div>
+
+		        </div>
+			</form>
+		</div>
+	</div>
+</div>
+<br class="clr" />
+<script type="text/javascript">
+
+	if($('#userID').val()!=""){
+		$.openURLContent('#content', 'search', null); //FIXME
+	}
+	$.cadastro = function() {
+		var mostrarErrors = "";
+		var userData = $("#cadastreSeForm").serializeObject();
+		var errors = [];
+		if(userData.name== ""){
+			errors.push("Você deve preencher o campo nome.");
+		}
+		if(userData.email==""){
+			errors.push("Você deve preencher o campo E-mail.");
+		}
+		if(userData.confirmPassword != userData.password || userData.password == ""){
+			errors.push("Por favor, verifique a sua senha.");
+		}
+
+		if(errors.length == 0){
+			findplaces.webservice.user.createUserByEmail(userData);
+		} else {
+			for(var i = 0; i < errors.length; i++){
+				mostrarErrors += "<li>{{erro}}</li>".replace("{{erro}}",errors[i]);
+			}
+			$('#erroCadastrese').html(mostrarErrors);
+		}
+
+	};
+
+	$.login = function() {
+		var userData = $('#entre').serializeObject();
+		findplaces.webservice.user.loginUserWithEmail(userData);
+	}
+</script>
